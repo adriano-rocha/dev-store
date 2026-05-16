@@ -1,36 +1,142 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Dev Store — E-commerce
 
-## Getting Started
+Projeto de e-commerce desenvolvido com **Next.js 14 (App Router)**, com foco em performance, escalabilidade e boas práticas de desenvolvimento.
 
-First, run the development server:
+---
+
+## 🚀 Tecnologias
+
+- [Next.js 14](https://nextjs.org/) — App Router
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [PostCSS](https://postcss.org/)
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+dev-store/
+├── frontend/
+│   ├── public/                  # Arquivos estáticos públicos
+│   ├── src/
+│   │   ├── actions/             # Server Actions do Next.js
+│   │   ├── app/
+│   │   │   └── (site)/
+│   │   │       ├── categories/
+│   │   │       │   └── [slug]/
+│   │   │       │       └── page.tsx      # Página de categoria dinâmica
+│   │   │       ├── product/
+│   │   │       │   └── [id]/
+│   │   │       │       └── page.tsx      # Página de produto dinâmica
+│   │   │       ├── layout.tsx            # Layout raiz do site
+│   │   │       └── page.tsx              # Home
+│   │   ├── components/
+│   │   │   ├── categories/      # Componentes de categorias
+│   │   │   ├── home/            # Componentes da página inicial
+│   │   │   │   ├── banners.tsx
+│   │   │   │   ├── most-sold-products.tsx
+│   │   │   │   ├── most-viewed-products.tsx
+│   │   │   │   └── product-list.tsx
+│   │   │   ├── layout/          # Header, Footer, etc.
+│   │   │   └── product/         # Componentes de produto
+│   │   │       ├── image-slider.tsx
+│   │   │       ├── product-description.tsx
+│   │   │       ├── product-details.tsx
+│   │   │       ├── related-products.tsx
+│   │   │       └── related-products-skeleton.tsx
+│   │   ├── hooks/               # Custom React Hooks
+│   │   ├── libs/                # Utilitários e integrações
+│   │   ├── store/               # Gerenciamento de estado global
+│   │   ├── types/               # Tipagens TypeScript
+│   │   │   ├── banner.ts
+│   │   │   ├── menu-items.ts
+│   │   │   └── product.ts
+│   │   ├── data.ts              # Dados estáticos / mock
+│   │   ├── globals.css          # Estilos globais
+│   │   └── favicon.ico
+│   ├── .env                     # Variáveis de ambiente (não versionar)
+│   ├── .gitignore
+│   ├── next.config.ts
+│   ├── next-env.d.ts
+│   ├── package.json
+│   ├── postcss.config.mjs
+│   ├── tailwind.config.ts (se aplicável)
+│   └── tsconfig.json
+```
+
+---
+
+## ⚙️ Pré-requisitos
+
+- **Node.js** >= 18.x
+- **npm**, **yarn**, **pnpm** ou **bun**
+
+---
+
+## 🏃 Rodando o Projeto
+
+Clone o repositório e instale as dependências:
+
+```bash
+git clone https://github.com/seu-usuario/dev-store.git
+cd dev-store/frontend
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔐 Variáveis de Ambiente
 
-## Learn More
+Crie um arquivo `.env` na raiz do projeto `frontend/` com base no `.env.example`:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+# Exemplo
+NEXT_PUBLIC_API_URL=https://sua-api.com
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> ⚠️ Nunca versione o arquivo `.env` com dados sensíveis.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📦 Scripts Disponíveis
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Comando           | Descrição                          |
+|-------------------|------------------------------------|
+| `npm run dev`     | Inicia em modo desenvolvimento     |
+| `npm run build`   | Gera o build de produção           |
+| `npm run start`   | Inicia o servidor de produção      |
+| `npm run lint`    | Executa o linter (ESLint)          |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🌐 Deploy
+
+O projeto é otimizado para deploy na [Vercel](https://vercel.com):
+
+1. Faça push para o GitHub
+2. Importe o repositório na Vercel
+3. Configure as variáveis de ambiente
+4. Deploy automático a cada `git push`
+
+Consulte a [documentação de deploy do Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para outras opções.
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
